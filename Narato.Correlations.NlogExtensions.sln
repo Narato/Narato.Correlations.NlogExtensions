@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{11B2FCB5-0F42-4910-B2C4-0B68EBC13AA9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9398C113-E5DC-4C65-9FDB-05846132F5D7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Narato.Correlations.NlogExtensions", "src\Narato.Correlations.NlogExtensions\Narato.Correlations.NlogExtensions.xproj", "{0CDDAE01-F2F7-4EC4-836B-0958D6227923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Correlations.NlogExtensions", "src\Narato.Correlations.NlogExtensions\Narato.Correlations.NlogExtensions.csproj", "{0CDDAE01-F2F7-4EC4-836B-0958D6227923}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Narato.Correlations.NlogExtensions.Test", "test\Narato.Correlations.NlogExtensions.Test\Narato.Correlations.NlogExtensions.Test.xproj", "{42564DA7-7156-45ED-801E-5AD161B2355E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Narato.Correlations.NlogExtensions.Test", "test\Narato.Correlations.NlogExtensions.Test\Narato.Correlations.NlogExtensions.Test.csproj", "{42564DA7-7156-45ED-801E-5AD161B2355E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +32,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0CDDAE01-F2F7-4EC4-836B-0958D6227923} = {11B2FCB5-0F42-4910-B2C4-0B68EBC13AA9}
 		{42564DA7-7156-45ED-801E-5AD161B2355E} = {9398C113-E5DC-4C65-9FDB-05846132F5D7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF5E94F6-A196-4C20-93DC-2A3CB92A2DA8}
 	EndGlobalSection
 EndGlobal
