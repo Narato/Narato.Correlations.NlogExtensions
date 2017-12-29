@@ -3,13 +3,11 @@ This library contains Nlog extensions for automatically enriching log messages w
 
 Getting started
 ==========
-### 1. Add dependency in project.json
+### 1. Add dependency in your project's csproj file
 
-```json
-"dependencies": {
-   "Narato.Correlations": "1.0.0",
-   "Narato.Correlations.NlogExtensions": "1.0.0" 
-}
+```xml
+<PackageReference Include="Narato.Correlations" Version="2.0.0" />
+<PackageReference Include="Narato.Correlations.NlogExtensions" Version="2.0.1" />
 ```
 
 ### 2. Create a nlog.config file.
@@ -55,7 +53,36 @@ Also note the ${correlation-id}. This will get filled in with the correlation ID
 ```
 
 ### 3. Configure Startup.cs
-This library doesn't need additional configuration, but make sure that the configuration for [Narato.Correlations](https://github.com/Narato/Narato.Correlations) are correct.
+This library doesn't need additional configuration, but make sure that the configuration for [Narato.Correlations](https://github.com/Narato/Narato.Correlations) is correct.
+
+### 4. Update Program.cs to enable NLog
+add ```using NLog.Web;```
+
+```C#
+public static void Main(string[] args)
+{
+    // NLog: setup the logger first to catch all errors
+    var logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
+    try
+    {
+        logger.Debug("init main");
+        BuildWebHost(args).Run();
+    }
+    catch (Exception e)
+    {
+        //NLog: catch setup errors
+        logger.Error(e, "Stopped program because of exception");
+        throw;
+    }
+}
+
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseNLog() // NLog: setup NLog for Dependency injection
+        .Build();
+
+```
 
 # Helping out
 
